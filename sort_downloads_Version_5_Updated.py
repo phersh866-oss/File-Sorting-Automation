@@ -123,45 +123,47 @@ def get_file_cat(filename):
 
 
 # Read All Files
-for file in os.listdir(PATH_DOWNLOADS):
-
-    # calling function and putting the return value into dir_name
-    dir_name = get_file_cat(file)
-    #print(dir_name,file)
-
-    if (dir_name):
-
-        # joing these paths
-        dir_filepath = os.path.join(PATH_DOWNLOADS, dir_name)
-
-        # Create Sorting Folders
-
-        # do this is the file path does not exist
-        if not os.path.exists(dir_filepath):
-
-            os.makedirs(dir_filepath)
-
-
-
-
-        # Define Old/New Paths
-        old_path = PATH_DOWNLOADS / file
-        new_path = os.path.join(PATH_DOWNLOADS, dir_name, file)
-
-        # Move Files
-
-        # this try except block help if you have an open file
-        try:
-
-            #  this shutil function will let you move files
-            shutil.move(old_path, new_path)
-
-            # Reporting successful results
-            print(f' {dir_name} / {file}')
-
-        except Exception as e:
-
-            print(f' {dir_name} / {file} - {e}')
+# This is the previous version of the dort downloads function
+# def sort_downloads():
+#     for file in os.listdir(PATH_DOWNLOADS):
+#
+#         # calling function and putting the return value into dir_name
+#         dir_name = get_file_cat(file)
+#         #print(dir_name,file)
+#
+#         if (dir_name):
+#
+#             # joing these paths
+#             dir_filepath = os.path.join(PATH_DOWNLOADS, dir_name)
+#
+#             # Create Sorting Folders
+#
+#             # do this is the file path does not exist
+#             if not os.path.exists(dir_filepath):
+#
+#                 os.makedirs(dir_filepath)
+#
+#
+#
+#
+#             # Define Old/New Paths
+#             old_path = PATH_DOWNLOADS / file
+#             new_path = os.path.join(PATH_DOWNLOADS, dir_name, file)
+#
+#             # Move Files
+#
+#             # this try except block help if you have an open file
+#             try:
+#
+#                 #  this shutil function will let you move files
+#                 shutil.move(old_path, new_path)
+#
+#                 # Reporting successful results
+#                 print(f' {dir_name} / {file}')
+#
+#             except Exception as e:
+#
+#                 print(f' {dir_name} / {file} - {e}')
 
 
 
